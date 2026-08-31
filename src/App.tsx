@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router"
 import Login from './views/Login'
-import SignUp from './views/SignUp';
+import SignUp from './views/SignUp'
+import UserDashboard from './views/UserDashboard'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<SignUp />} />
+          <Route path="/user/:id" element={<UserDashboard />} />
         </Routes>
       </BrowserRouter>
     </>
