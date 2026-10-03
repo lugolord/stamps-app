@@ -1,3 +1,5 @@
+import logo from '../assets/laura-logo.png'
+
 function StampsCard () {
   return (
     <div className="hover-3d">
@@ -5,8 +7,9 @@ function StampsCard () {
       <figure className="max-w-100 rounded-2xl bg-white">
         <div className='flex flex-col justify-center items-center gap-5 h-50 w-90'>
           <div className='flex gap-5'>
-            <div className='size-20 rounded-full bg-black'></div>
-            <div className='size-20 rounded-full bg-black'></div>
+            {/* <div className='size-20 rounded-full bg-black'></div> */}
+            <img className='size-20 rounded-full' src={logo} alt="logo" />
+            <img className='size-20 rounded-full' src={logo} alt="logo" />
             <div className='size-20 rounded-full bg-black'></div>
           </div>
           <div className='flex gap-5'>
