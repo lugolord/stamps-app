@@ -1,19 +1,33 @@
-import StampsCard from '../components/StampsCard'
+import LoyaltyCard from '../components/LoyaltyCard'
+import { useParams } from 'react-router'
+import { getUserByDni } from '../firebase/db'
+import { useEffect, useState } from 'react'
+import type { DocumentData } from 'firebase/firestore'
 
 function UserDashboard () {
+  const [user, setUser] = useState<DocumentData | undefined>()
+  const { id } = useParams()
+
+  useEffect(() => {
+    if (id) {
+      getUserByDni(id)
+        .then(data => setUser(data))
+    }
+  }, [id])
+
   return (
-    <div>
-      <header className='flex justify-between mb-20 p-5'>
-        <p className='text-2xl'>Hola, Pepito</p>
-        <button>logout</button>
-      </header>
-      <main>
-        <h1 className='text-center text-4xl'>Tus sellos</h1>
-        <p className='text-center mb-20'>Disfruta de tu café. Nosotros te invitamos el sexto.</p>
-        <div className='flex flex-col justify-center items-center'>
-          <p className='mb-5 text-2xl'>Progreso actual 4/5 sellos</p>
-          <StampsCard />
+    <div className='md:mx-40 lg:mx-96'>
+      <header className='flex gap-5 mb-10 py-10 px-5'>
+        <div>
+          <div className='size-15 rounded-full bg-gray-400'></div>
         </div>
+        <div>
+          <p>Hola {user?.name},</p>
+          <p>Bienvenido de vuelta</p>
+        </div>
+      </header>
+      <main className='flex justify-center'>
+        <LoyaltyCard stampsCount={user?.stampsCount} />
       </main>
     </div>
   )
