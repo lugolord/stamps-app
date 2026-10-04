@@ -19,7 +19,6 @@ function UserDashboard () {
     <div className='md:mx-40 lg:mx-96'>
       <header className='flex gap-5 mb-10 py-10 px-5'>
         <div>
-          {/* <div className='size-15 rounded-full bg-gray-400'></div> */}
           <img src={`https://api.dicebear.com/10.x/lorelei/svg?seed=${id}`} className='size-15 rounded-full bg-gray-400'></img>
         </div>
         <div>
